@@ -2,7 +2,9 @@
 <resources>
 
     <string name="app_name">GroupmeLocator</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_addLocation">Add Location</string>
+    <string name="title_activity_add_location">AddLocationActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
