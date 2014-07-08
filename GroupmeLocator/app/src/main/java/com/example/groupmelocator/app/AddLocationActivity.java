@@ -1,9 +1,16 @@
 package com.example.groupmelocator.app;
 
+import android.content.Context;
+import android.location.LocationManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+
+import java.util.List;
 
 
 public class AddLocationActivity extends ActionBarActivity {
@@ -14,6 +21,37 @@ public class AddLocationActivity extends ActionBarActivity {
         setContentView(R.layout.activity_add_location);
     }
 
+    public void btnAddLocationPushed(View view) {
+        MyDatabaseHandler db = null;
+        try
+        {
+            // open the database
+            db = new MyDatabaseHandler(this);
+            db.open();
+
+            // get current location
+            MyLocation myloc = GetLocationHandler.getCurrentLocation((LocationManager) this.getSystemService(Context.LOCATION_SERVICE));
+
+            // get values from main screen
+            EditText locName   = (EditText)findViewById(R.id.newLocationName);
+            EditText locRadius   = (EditText)findViewById(R.id.newLocRadius);
+
+            // get the string values
+            String locNamestr = locName.getText().toString();
+            String locRadiusstr = locRadius.getText().toString();
+
+            if (locNamestr != "" && locRadiusstr != "") {
+                db.createMyLocation(locNamestr, myloc.getLatitude(), myloc.getLongitude(), Double.parseDouble(locRadiusstr));
+                finish();
+            }
+        }
+        catch (Exception e) {
+            Log.e("AddLocationActivity", e.getMessage());
+        }
+        finally {
+            db.close();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,3 +72,4 @@ public class AddLocationActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+

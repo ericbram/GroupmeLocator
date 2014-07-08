@@ -81,8 +81,8 @@ public class MyDatabaseHandler {
         MyLocation loc = new MyLocation();
         loc.setId(cursor.getLong(0));
         loc.setLocationName(cursor.getString(1));
-        loc.setLatitude(cursor.getDouble(2));
-        loc.setLongitude(cursor.getDouble(3));
+        loc.setLatitude(cursor.getDouble(3));
+        loc.setLongitude(cursor.getDouble(2));
         loc.setRadius(cursor.getDouble(4));
         return loc;
     }

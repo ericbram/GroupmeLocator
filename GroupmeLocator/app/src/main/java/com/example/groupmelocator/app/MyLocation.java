@@ -1,5 +1,9 @@
 package com.example.groupmelocator.app;
 
+import android.location.Location;
+
+import java.io.Serializable;
+
 /**
  * Created by Eric on 6/5/2014.
  *
@@ -7,12 +11,26 @@ package com.example.groupmelocator.app;
  * used as a template:
  * http://www.vogella.com/tutorials/AndroidSQLite/article.html
  */
-public class MyLocation {
+public class MyLocation implements Serializable{
     private long id;
     private String locationname;
     private double latitude;
     private double longitude;
     private double radius;
+
+    public boolean IsPointInLocation(MyLocation loc) {
+        float[] results = new float[1];
+
+        // get the distance between the current point and the desired point
+        Location.distanceBetween(this.latitude, this.longitude, loc.getLatitude(), loc.getLongitude(), results);
+
+        // calculate the results in miles
+        float meters = results[0];
+        double miles = meters * 0.000621371;
+
+        // if the distance is less than or equal to the radius specified, you are in that area
+        return miles <= radius;
+    }
 
     public long getId() {
         return id;
@@ -57,6 +75,14 @@ public class MyLocation {
     // Will be used by the ArrayAdapter in the ListView
     @Override
     public String toString() {
-        return "NEED THIS DONE -- TODO";
+        return locationname + " is at " + latitude + "," + longitude + " with a radius of " + radius + ".";
+    }
+
+    public String EnterMessage() {
+        return "Eric has arrived at " + locationname + ".";
+    }
+
+    public String LeftMessage() {
+        return "Eric has left " + locationname + ".";
     }
 }

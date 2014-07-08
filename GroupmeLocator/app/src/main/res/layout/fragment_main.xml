@@ -9,25 +9,10 @@
     tools:context="com.example.groupmelocator.app.MainActivity$PlaceholderFragment">
 
     <LinearLayout
+        android:id="@+id/MainPageLayout"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/distanceMeasurement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/distance2Measurement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="100px"
-            android:onClick="refreshLocation"
-            android:text="Refresh" />
-    </LinearLayout>
-
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
