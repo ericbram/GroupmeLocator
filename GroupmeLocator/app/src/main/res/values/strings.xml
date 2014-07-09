@@ -4,7 +4,9 @@
     <string name="app_name">GroupmeLocator</string>
     <string name="action_settings">Settings</string>
     <string name="action_addLocation">Add Location</string>
+    <string name="action_addBotID">Set Bot ID</string>
     <string name="title_activity_add_location">AddLocationActivity</string>
+    <string name="title_activity_setbotid">AddBotIDActivity</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

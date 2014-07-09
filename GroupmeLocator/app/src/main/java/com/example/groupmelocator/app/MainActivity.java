@@ -64,6 +64,10 @@ public class MainActivity extends ActionBarActivity {
             Intent intent = new Intent(this, AddLocationActivity.class);
             startActivity(intent);
         }
+        if (id == R.id.action_addBotID) {
+            Intent intent = new Intent(this, AddBotIDActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 }

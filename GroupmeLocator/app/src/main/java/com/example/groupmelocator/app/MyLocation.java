@@ -22,14 +22,14 @@ public class MyLocation implements Serializable{
         float[] results = new float[1];
 
         // get the distance between the current point and the desired point
-        Location.distanceBetween(this.latitude, this.longitude, loc.getLatitude(), loc.getLongitude(), results);
+        Location.distanceBetween(this.getLatitude(), this.getLongitude(), loc.getLatitude(), loc.getLongitude(), results);
 
         // calculate the results in miles
         float meters = results[0];
         double miles = meters * 0.000621371;
 
         // if the distance is less than or equal to the radius specified, you are in that area
-        return miles <= radius;
+        return miles <= getRadius();
     }
 
     public long getId() {

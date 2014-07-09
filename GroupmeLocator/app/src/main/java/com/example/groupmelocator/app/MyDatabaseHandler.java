@@ -36,6 +36,7 @@ public class MyDatabaseHandler {
         dbHelper.close();
     }
 
+    // creates an insert statement with the location into the database
     public MyLocation createMyLocation(String name, double latitude, double longitude, double radius) {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_LOCATIONNAME, name);
@@ -53,13 +54,9 @@ public class MyDatabaseHandler {
         return newLocation;
     }
 
-    public void deleteLocation(MyLocation location) {
-        long id = location.getId();
-        System.out.println("location deleted with id: " + id);
-        database.delete(MySQLiteHelper.TABLE_NAME, MySQLiteHelper.COLUMN_ID
-                + " = " + id, null);
-    }
 
+
+    // queries the db getting all entries and returning them
     public List<MyLocation> getAllLocations() {
         List<MyLocation> locs = new ArrayList<MyLocation>();
 
@@ -68,6 +65,7 @@ public class MyDatabaseHandler {
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
+            // create a new MyLocation object and add it to the lost
             MyLocation loc = cursorToNewLocation(cursor);
             locs.add(loc);
             cursor.moveToNext();

@@ -38,14 +38,18 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class GroupmeCom {
 
-    // katie
-    //final String bot_ID = "91a91c0cd8cb3f4ead54e23c07";
+    String bot_ID = "";
 
-    // test room
-    final String bot_ID = "c6cf1ccf246f87ad0cd202e789";
+    public GroupmeCom(String ID) {
+        bot_ID = ID;
+    }
 
     public void PostMessage(String message) {
         try {
+            if (bot_ID == null || bot_ID == "") {
+                // bot ID not set
+                return;
+            }
             JSONObject obj = new JSONObject();
             obj.put("bot_id", bot_ID);
             obj.put("text", message);
@@ -55,6 +59,7 @@ public class GroupmeCom {
 
         }
     }
+
 
     // this posts to Groupme using an Async task (required)
     public void Post(String message, String url) throws MalformedURLException {

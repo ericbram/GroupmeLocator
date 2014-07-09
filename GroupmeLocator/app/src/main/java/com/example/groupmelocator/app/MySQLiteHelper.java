@@ -14,6 +14,8 @@ import android.util.Log;
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
+
+    // this class is basically the schema for the sql database used in this application
     public static final String TABLE_NAME = "comments";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_LOCATIONNAME = "locationname";
