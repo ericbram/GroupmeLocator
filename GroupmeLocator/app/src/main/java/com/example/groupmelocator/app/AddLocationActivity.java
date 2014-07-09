@@ -18,6 +18,7 @@ public class AddLocationActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_location);
+        getActionBar().setTitle("Store Current Location");
     }
 
     public void btnAddLocationPushed(View view) {

@@ -36,6 +36,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
 
+        getActionBar().setTitle("Groupme Locator Main Screen");
+
         Intent intentAlarm = new Intent(this, Alarm.class);
         // create the object
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);

@@ -21,6 +21,7 @@ public class AddBotIDActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_botid);
+        getActionBar().setTitle("Set your Groupme Bot ID");
     }
 
     @Override
